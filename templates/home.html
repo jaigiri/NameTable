@@ -1,0 +1,24 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %} Name Table {% endblock %}
+
+{% block content %}
+    <h1 class="page-header">Hello, enter your name to see it on the table!</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for name in names %}
+            <tr>
+                <th>{{ name.name }}</th>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {{ wtf.quick_form(form) }}
+{% endblock %}
